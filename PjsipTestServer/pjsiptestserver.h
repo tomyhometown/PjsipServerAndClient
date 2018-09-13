@@ -4,7 +4,6 @@
 #include <pjsua2.hpp>
 #include <iostream>
 #include <string>
-#include <sstream>
 using namespace pj;
 
 class PjsipTestServer : public Account
@@ -12,15 +11,17 @@ class PjsipTestServer : public Account
 public:
     static int sendCounter;
 public:
+    // Constructor needs implement, if not, there will be a error "undefined reference to constructor".
     PjsipTestServer()
     {
-        sip_user = "server";
+        std::cout << "PjsipTestServer is created!" << std::endl;
     }
-    ~PjsipTestServer(){}
-    std::string getUser()
+
+    ~PjsipTestServer()
     {
-        return sip_user;
+        std::cout << "PjsipTestServer is deleted!" << std::endl;
     }
+
     virtual void onInstantMessageStatus(OnInstantMessageStatusParam &prm)
     {
        std::cout << std::endl<< "********** SendMessage:code = " << prm.code << " ***********"<< std::endl << std::endl;
@@ -30,16 +31,22 @@ public:
        }
        std::cout << std::endl<< "********** sendCounter = " << sendCounter << " ***********"<< std::endl << std::endl;
     }
-
-private:
-    std::string sip_user;
 };
 
 class MyBuddy : public Buddy
 {
 public:
-    MyBuddy() {}
-    ~MyBuddy() {}
+    // Constructor needs implement, if not, there will be a error "undefined reference to constructor".
+    MyBuddy()
+    {
+         std::cout << "MyBuddy is created!" << std::endl;
+    }
+
+    // Desstructor needs implement, if not, there will be a error "undefined reference to destructor".
+    ~MyBuddy()
+    {
+         std::cout << "MyBuddy is deleted!" << std::endl;
+    }
 
     virtual void onBuddyState()
     {

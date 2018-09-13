@@ -10,10 +10,10 @@ CONFIG += c++11
 #PKGCONFIG += libpjproject
 
 INCLUDEPATH += \
-    $$PWD/include
+    $$PWD/../include
 
 LIBS += \
-    -L$$PWD/lib \
+    -L$$PWD/../lib \
     -lpjsua2-x86_64-unknown-linux-gnu \
     -lstdc++ \
     -lpjsua-x86_64-unknown-linux-gnu \
@@ -37,7 +37,6 @@ LIBS += \
     -lwebrtc-x86_64-unknown-linux-gnu \
     -lpj-x86_64-unknown-linux-gnu \
     -lm -lrt -lpthread  -lasound
-
 
 SOURCES += \
     pjsiptestserver.cpp

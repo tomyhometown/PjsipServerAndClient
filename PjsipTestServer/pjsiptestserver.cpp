@@ -1,11 +1,9 @@
 #include "pjsiptestserver.h"
-#include <iostream>
-#include <string>
 #include <sstream>
 
 #define THIS_FILE 	"pjsiptestserver.cpp"
 #define PJSIP_SIP_PORT  5060
-#define SEND_TIMES      10
+#define SEND_TIMES      2
 
 static void add_dns_entries(pj_dns_resolver *resv)
 {
