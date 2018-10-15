@@ -41,7 +41,10 @@ LIBS += \
 
 
 SOURCES += \
-    pjsiptestclient.cpp
+    pjsiptestclient.cpp \
+    testclientaccount.cpp \
+    testclientcall.cpp
 
 HEADERS += \
-    pjsiptestclient.h
+    testclientaccount.h \
+    testclientcall.h
