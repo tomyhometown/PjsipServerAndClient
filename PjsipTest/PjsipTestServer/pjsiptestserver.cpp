@@ -42,7 +42,7 @@ static void add_dns_entries(pj_dns_resolver *resv)
     ar[0].type = PJ_DNS_TYPE_A;
     ar[0].dnsclass = PJ_DNS_CLASS_IN;
     ar[0].ttl = 3600;
-    ar[0].rdata.a.ip_addr = pj_inet_addr(pj_cstr(&tmp, (char *)"192.168.10.103"));
+    ar[0].rdata.a.ip_addr = pj_inet_addr(pj_cstr(&tmp, (char *)"192.168.1.67"));
 
     pj_bzero(&pkt, sizeof(pkt));
     pkt.hdr.flags = PJ_DNS_SET_QR(1);
@@ -151,7 +151,7 @@ void AddDNS()
     pj_str_t nameserver;
     pj_uint16_t port = PJSIP_SIP_PORT;
     pjsip_endpt_create_resolver(endpt, &resv);
-    nameserver = pj_str((char *)"192.168.10.103");
+    nameserver = pj_str((char *)"192.168.1.67");
     pj_dns_resolver_set_ns(resv, 1, &nameserver, &port);
     pjsip_endpt_set_resolver(endpt, resv);
     add_dns_entries(resv);
@@ -235,6 +235,9 @@ int main()
     TestSeverAccount *acc = new TestSeverAccount;
     AccountConfig acc_cfg;
     acc_cfg.idUri = "sip:34020000001200000001@3402000000";
+
+    acc_cfg.videoConfig.autoTransmitOutgoing = true;
+
     acc->create(acc_cfg);
 //    pjsua_acc_id id = acc->getId();
 //    std::cout << std::endl<< "acc id : " << id << std::endl << std::endl;

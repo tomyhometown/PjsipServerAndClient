@@ -22,10 +22,10 @@ void TestServerCall::onCallState(OnCallStateParam &prm)
     std::cout << "*** Call: " <<  ci.remoteUri << " [" << ci.stateText
               << "]" << std::endl;
 
-    for (unsigned i = 0; i < ci.provMedia.size(); i++)
-    {
-        std::cout << ci.provMedia[i].index << " : " << ci.provMedia[i].status << std::endl;
-    }
+//    for (unsigned i = 0; i < ci.provMedia.size(); i++)
+//    {
+//        std::cout << ci.provMedia[i].index << " : " << ci.provMedia[i].status << std::endl;
+//    }
 
     if (ci.state == PJSIP_INV_STATE_DISCONNECTED) {
         myAcc->removeCall(this);
@@ -33,6 +33,11 @@ void TestServerCall::onCallState(OnCallStateParam &prm)
         delete this;
     }
 }
+
+//void onCallTsxState(OnCallTsxStateParam &prm)
+//{
+
+//}
 
 void TestServerCall::onCallMediaState(OnCallMediaStateParam &/*prm*/)
 {
@@ -68,8 +73,6 @@ void TestServerCall::onCallSdpCreated(OnCallSdpCreatedParam &prm)
 
 //    sdp_parse(pool, dup_new_sdp.ptr,
 //                       dup_new_sdp.slen, &new_sdp);
-
-
 
 static int is_initialized;
 static pj_cis_buf_t cis_buf;

@@ -12,7 +12,7 @@ INCLUDEPATH += \
     $$PWD/../include
 
 LIBS += \
-    -L$$PWD/../lib \
+    -L$$PWD/../lib-prefix/lib \
     -lpjsua2-x86_64-unknown-linux-gnu \
     -lstdc++ \
     -lpjsua-x86_64-unknown-linux-gnu \

@@ -1,13 +1,13 @@
 # Package Information for pkg-config
 
-prefix=/home/ubuntu/town/PjsipServerAndClient/PjsipTest/lib
+prefix=/home/ubuntu/town/PjsipServerAndClient/PjsipTest/lib-prefix
 exec_prefix=${prefix}
-libdir=/home/ubuntu/town/PjsipServerAndClient/PjsipTest/lib/lib
-includedir=/home/ubuntu/town/PjsipServerAndClient/PjsipTest/lib/include
+libdir=/home/ubuntu/town/PjsipServerAndClient/PjsipTest/lib-prefix/lib
+includedir=/home/ubuntu/town/PjsipServerAndClient/PjsipTest/lib-prefix/include
 
 Name: libpjproject
 Description: Multimedia communication library
 URL: http://www.pjsip.org
 Version: 2.7.2
 Libs: -L${libdir} -lpjsua2-x86_64-unknown-linux-gnu -lstdc++ -lpjsua-x86_64-unknown-linux-gnu -lpjsip-ua-x86_64-unknown-linux-gnu -lpjsip-simple-x86_64-unknown-linux-gnu -lpjsip-x86_64-unknown-linux-gnu -lpjmedia-codec-x86_64-unknown-linux-gnu -lpjmedia-x86_64-unknown-linux-gnu -lpjmedia-videodev-x86_64-unknown-linux-gnu -lpjmedia-audiodev-x86_64-unknown-linux-gnu -lpjmedia-x86_64-unknown-linux-gnu -lpjnath-x86_64-unknown-linux-gnu -lpjlib-util-x86_64-unknown-linux-gnu  -lsrtp-x86_64-unknown-linux-gnu -lresample-x86_64-unknown-linux-gnu -lgsmcodec-x86_64-unknown-linux-gnu -lspeex-x86_64-unknown-linux-gnu -lilbccodec-x86_64-unknown-linux-gnu -lg7221codec-x86_64-unknown-linux-gnu -lyuv-x86_64-unknown-linux-gnu -lwebrtc-x86_64-unknown-linux-gnu  -lpj-x86_64-unknown-linux-gnu -lssl -lcrypto -lopenh264 -lstdc++ -lm -lrt -lpthread  -lasound -L/usr/lib/x86_64-linux-gnu -lSDL2  -L/usr/local/lib -lavdevice -ldl -lxcb -lxcb-xfixes -lxcb-render -lxcb-shape -lxcb -lxcb-shape -lxcb -lX11 -lasound -lm -lz -pthread -lavfilter -ldl -lxcb -lxcb-xfixes -lxcb-render -lxcb-shape -lxcb -lxcb-shape -lxcb -lX11 -lasound -lm -lz -pthread -lavformat -ldl -lxcb -lxcb-xfixes -lxcb-render -lxcb-shape -lxcb -lxcb-shape -lxcb -lX11 -lasound -lm -lz -pthread -lavcodec -ldl -lxcb -lxcb-xfixes -lxcb-render -lxcb-shape -lxcb -lxcb-shape -lxcb -lX11 -lasound -lm -lz -pthread -lswresample -lm -lswscale -lm -lavutil -lm
-Cflags: -I${includedir} -g -O2 -I/home/ubuntu/town/PjsipServerAndClient/PjsipTest/lib/include -DPJ_AUTOCONF=1  -O2 -DPJ_IS_BIG_ENDIAN=0 -DPJ_IS_LITTLE_ENDIAN=1
+Cflags: -I${includedir} -g -O2 -I/home/ubuntu/town/PjsipServerAndClient/PjsipTest/lib-prefix/include -DPJ_AUTOCONF=1  -O2 -DPJ_IS_BIG_ENDIAN=0 -DPJ_IS_LITTLE_ENDIAN=1

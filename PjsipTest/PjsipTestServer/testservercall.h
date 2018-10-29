@@ -18,6 +18,7 @@ public:
     virtual void onCallState(OnCallStateParam &prm);
     virtual void onCallMediaState(OnCallMediaStateParam &/*prm*/);
     virtual void onCallSdpCreated(OnCallSdpCreatedParam &prm);
+//    virtual void onCallTsxState(OnCallTsxStateParam &prm);
     PJ_DEF(pj_status_t) sdp_parse( pj_pool_t *pool,
                            char *buf, pj_size_t len,
                            pjmedia_sdp_session **p_sdp);

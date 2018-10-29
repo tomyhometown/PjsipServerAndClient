@@ -1,1 +1,0 @@
-#	define PJSUA_MEDIA_HAS_PJMEDIA		0
