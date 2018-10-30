@@ -42,7 +42,7 @@ static void add_dns_entries(pj_dns_resolver *resv)
     ar[0].type = PJ_DNS_TYPE_A;
     ar[0].dnsclass = PJ_DNS_CLASS_IN;
     ar[0].ttl = 3600;
-    ar[0].rdata.a.ip_addr = pj_inet_addr(pj_cstr(&tmp, (char *)"192.168.1.67"));
+    ar[0].rdata.a.ip_addr = pj_inet_addr(pj_cstr(&tmp, (char *)"192.168.10.103"));
 
     pj_bzero(&pkt, sizeof(pkt));
     pkt.hdr.flags = PJ_DNS_SET_QR(1);
@@ -151,7 +151,7 @@ void AddDNS()
     pj_str_t nameserver;
     pj_uint16_t port = PJSIP_SIP_PORT;
     pjsip_endpt_create_resolver(endpt, &resv);
-    nameserver = pj_str((char *)"192.168.1.67");
+    nameserver = pj_str((char *)"192.168.10.103");
     pj_dns_resolver_set_ns(resv, 1, &nameserver, &port);
     pjsip_endpt_set_resolver(endpt, resv);
     add_dns_entries(resv);
@@ -206,11 +206,11 @@ void MakeCall(TestSeverAccount *acc)
     call->makeCall("sip:34020000001110000001@3402000000", prm);
     std::cout << std::endl << "CALL END" << std::endl << std::endl;
 
-    CallInfo ci = call->getInfo();
-    for (unsigned i = 0; i < ci.provMedia.size(); i++)
-    {
-        std::cout << ci.provMedia[i].index << " : " << ci.provMedia[i].status << std::endl;
-    }
+//    CallInfo ci = call->getInfo();
+//    for (unsigned i = 0; i < ci.provMedia.size(); i++)
+//    {
+//        std::cout << ci.provMedia[i].index << " : " << ci.provMedia[i].status << std::endl;
+//    }
 
 }
 
@@ -239,12 +239,35 @@ int main()
     acc_cfg.videoConfig.autoTransmitOutgoing = true;
 
     acc->create(acc_cfg);
-//    pjsua_acc_id id = acc->getId();
-//    std::cout << std::endl<< "acc id : " << id << std::endl << std::endl;
 
-    Sleep(20000);
+    Sleep(10000);
 
-    MakeCall(acc);
+
+    pjsua_call_id call_id = 1;
+    TestServerCall *call = new TestServerCall(*acc, call_id);
+    acc->calls.push_back(call);
+
+    CallOpParam prm(true);
+    prm.opt.audioCount = 0;
+    prm.opt.videoCount = 1;
+
+    std::cout << std::endl << "CALL START" << std::endl << std::endl;
+    call->makeCall("sip:34020000001110000001@3402000000", prm);
+    std::cout << std::endl << "CALL END" << std::endl << std::endl;
+
+
+    Sleep(1000);
+
+    call->hangup(prm);
+
+//    ep.hangupAllCalls();
+
+//    // send bye
+//    pj_str_t target = pj_str(const_cast<char *>("sip:34020000001110000001@3402000000"));
+//    pj_str_t from = pj_str(const_cast<char *>(acc_cfg.idUri.c_str()));
+//    pjsip_tx_data *tdata;
+//    pjsip_endpt_create_request(pjsua_get_pjsip_endpt(), pjsip_get_bye_method(), &target, &from, &target, NULL, NULL, -1, NULL, &tdata);
+//    pjsip_endpt_send_request_stateless(pjsua_get_pjsip_endpt(), tdata, NULL, NULL);
 
     Sleep(6000000);
 

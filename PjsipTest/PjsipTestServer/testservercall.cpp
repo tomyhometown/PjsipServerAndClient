@@ -53,9 +53,9 @@ void TestServerCall::onCallSdpCreated(OnCallSdpCreatedParam &prm)
 {
     prm.sdp.wholeSdp =
             "v=0\n"
-            "o=34020000002020000001 0 0 IN IP4 192.168.1.185\n"
+            "o=34020000002020000001 0 0 IN IP4 192.168.1.212\n"
             "s=Play\n"
-            "c=IN IP4 192.168.1.185\n"
+            "c=IN IP4 192.168.1.212\n"
             "t=0 0\n"
             "m=video 6000 RTP/AVP 96\n"
             "a=recvonly\n"
